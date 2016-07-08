@@ -6,17 +6,13 @@
 // 2009-02-11 K.OHWADA
 //=========================================================
 
-$constpref = strtoupper( '_BL_' . $GLOBALS['MY_DIRNAME']. '_' ) ;
+$constpref = strtoupper('_BL_' . $GLOBALS['MY_DIRNAME'] . '_');
 
 // === define begin ===
-if( !defined($constpref."LANG_LOADED") ) 
-{
+if (!defined($constpref . 'LANG_LOADED')) {
+    define($constpref . 'LANG_LOADED', 1);
 
-define($constpref."LANG_LOADED" , 1 ) ;
+    // dummy
 
-// dummy
-
-// === define end ===
+    // === define end ===
 }
-
-?>

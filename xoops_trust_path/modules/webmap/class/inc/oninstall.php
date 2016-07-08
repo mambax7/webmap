@@ -6,7 +6,9 @@
 // 2009-02-11 K.OHWADA
 //=========================================================
 
-if( ! defined( 'XOOPS_TRUST_PATH' ) ) die( 'not permit' ) ;
+if (!defined('XOOPS_TRUST_PATH')) {
+    die('not permit');
+}
 
 //=========================================================
 // class webmap_inc_oninstall
@@ -14,25 +16,23 @@ if( ! defined( 'XOOPS_TRUST_PATH' ) ) die( 'not permit' ) ;
 class webmap_inc_oninstall extends webmap_base_inc_oninstall
 {
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function webmap_inc_oninstall()
-{
-	$this->webmap_base_inc_oninstall();
-	$this->set_trust_dirname( WEBMAP_TRUST_DIRNAME );
-}
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function __construct()
+    {
+        parent::__construct();
+        $this->set_trust_dirname(WEBMAP_TRUST_DIRNAME);
+    }
 
-function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) {
-		$instance = new webmap_inc_oninstall();
-	}
-	return $instance;
-}
+    public static function getInstance()
+    {
+        static $instance;
+        if (!isset($instance)) {
+            $instance = new webmap_inc_oninstall();
+        }
+        return $instance;
+    }
 
-// --- class end ---
+    // --- class end ---
 }
-
-?>

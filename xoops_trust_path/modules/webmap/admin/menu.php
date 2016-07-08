@@ -10,22 +10,22 @@
 // $MY_DIRNAME is set by caller
 //---------------------------------------------------------
 
-if( ! defined( 'XOOPS_TRUST_PATH' ) ) die( 'not permit' ) ;
+if (!defined('XOOPS_TRUST_PATH')) {
+    die('not permit');
+}
 
 //---------------------------------------------------------
 // webmap files
 //---------------------------------------------------------
-include_once XOOPS_TRUST_PATH.'/modules/webmap/init.php';
+include_once XOOPS_TRUST_PATH . '/modules/webmap/init.php';
 
-$MY_DIRNAME= $GLOBALS['MY_DIRNAME'];
-webmap_include_once( 'class/base/inc/admin_menu.php', $MY_DIRNAME );
-webmap_include_once( 'class/inc/admin_menu.php',      $MY_DIRNAME );
-webmap_include_language( 'modinfo.php',               $MY_DIRNAME );
+$MY_DIRNAME = $GLOBALS['MY_DIRNAME'];
+webmap_include_once('class/base/inc/admin_menu.php', $MY_DIRNAME);
+webmap_include_once('class/inc/admin_menu.php', $MY_DIRNAME);
+webmap_include_language('modinfo.php', $MY_DIRNAME);
 
 //=========================================================
 // main
 //=========================================================
-$manager =& webmap_inc_admin_menu::getSingleton( $MY_DIRNAME );
+$manager   = webmap_inc_admin_menu::getSingleton($MY_DIRNAME);
 $adminmenu = $manager->build_main_menu();
-
-?>

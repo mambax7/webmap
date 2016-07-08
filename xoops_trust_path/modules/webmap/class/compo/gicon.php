@@ -17,42 +17,40 @@
 //=========================================================
 class webmap_compo_gicon
 {
-	var $_gicon_handler;
-	var $_DIRNAME;
+    public $_gicon_handler;
+    public $_DIRNAME;
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function webmap_compo_gicon( $dirname )
-{
-	$this->_DIRNAME = $dirname;
-	$this->_gicon_handler  =& webmap_compo_handler_gicon::getSingleton( $dirname );
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function __construct($dirname)
+    {
+        $this->_DIRNAME       = $dirname;
+        $this->_gicon_handler = webmap_compo_handler_gicon::getSingleton($dirname);
+    }
+
+    public static function getSingleton($dirname)
+    {
+        static $singletons;
+        if (!isset($singletons[$dirname])) {
+            $singletons[$dirname] = new webmap_compo_gicon($dirname);
+        }
+        return $singletons[$dirname];
+    }
+
+    //---------------------------------------------------------
+    // pulic
+    //---------------------------------------------------------
+    public function get_sel_options($flag_none = true, $flag_flip = false)
+    {
+        $arr = $this->_gicon_handler->get_sel_options($flag_none);
+
+        // Warning [PHP]: array_flip() : The argument should be an array
+        if ($flag_flip && is_array($arr)) {
+            $arr = array_flip($arr);
+        }
+        return $arr;
+    }
+
+    // --- class end ---
 }
-
-function &getSingleton( $dirname )
-{
-	static $singletons;
-	if ( !isset( $singletons[ $dirname ] ) ) {
-		$singletons[ $dirname ] = new webmap_compo_gicon( $dirname );
-	}
-	return $singletons[ $dirname ];
-}
-
-//---------------------------------------------------------
-// pulic
-//---------------------------------------------------------
-function get_sel_options( $flag_none=true, $flag_flip=false )
-{
-	$arr = $this->_gicon_handler->get_sel_options( $flag_none );
-
-// Warning [PHP]: array_flip() : The argument should be an array
-	if ( $flag_flip && is_array($arr)  ) {
-		$arr = array_flip( $arr );
-	}
-	return $arr;
-}
-
-// --- class end ---
-}
-
-?>

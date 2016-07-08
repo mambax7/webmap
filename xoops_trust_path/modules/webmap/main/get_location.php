@@ -6,24 +6,24 @@
 // 2009-02-11 K.OHWADA
 //=========================================================
 
-if( ! defined( 'XOOPS_TRUST_PATH' ) ) die( 'not permit' ) ;
+if (!defined('XOOPS_TRUST_PATH')) {
+    die('not permit');
+}
 
 //---------------------------------------------------------
 // xoops system files
 //---------------------------------------------------------
-include_once XOOPS_ROOT_PATH.'/class/template.php';
+include_once XOOPS_ROOT_PATH . '/class/template.php';
 
 //---------------------------------------------------------
 // webphoto files
 //---------------------------------------------------------
-webmap_include_once( 'main/header.php' );
-webmap_include_once( 'class/main/get_location.php' );
+webmap_include_once('main/header.php');
+webmap_include_once('class/main/get_location.php');
 
 //=========================================================
 // main
 //=========================================================
-$manage =& webmap_main_get_location::getInstance( WEBMAP_DIRNAME );
+$manage = webmap_main_get_location::getInstance(WEBMAP_DIRNAME);
 $manage->main();
 exit();
-
-?>

@@ -10,20 +10,20 @@
 // $MY_DIRNAME is set by caller
 //---------------------------------------------------------
 
-if ( ! defined( 'XOOPS_TRUST_PATH' ) ) die( 'not permit' ) ;
-
-if ( !isset($MY_TRUST_DIRNAME) ) {
-	$MY_TRUST_DIRNAME = basename( dirname( __FILE__ ) ) ;
-}
-if ( !defined("WEBMAP_TRUST_DIRNAME") ) {
-	define("WEBMAP_TRUST_DIRNAME", $MY_TRUST_DIRNAME );
-}
-if ( !defined("WEBMAP_TRUST_PATH") ) {
-	define("WEBMAP_TRUST_PATH", XOOPS_TRUST_PATH.'/modules/'.WEBMAP_TRUST_DIRNAME );
+if (!defined('XOOPS_TRUST_PATH')) {
+    die('not permit');
 }
 
-include_once WEBMAP_TRUST_PATH.'/class/base/d3/optional.php';
-include_once WEBMAP_TRUST_PATH.'/class/base/d3/preload.php';
-include_once WEBMAP_TRUST_PATH.'/include/optional.php';
+if (!isset($MY_TRUST_DIRNAME)) {
+    $MY_TRUST_DIRNAME = basename(__DIR__);
+}
+if (!defined('WEBMAP_TRUST_DIRNAME')) {
+    define('WEBMAP_TRUST_DIRNAME', $MY_TRUST_DIRNAME);
+}
+if (!defined('WEBMAP_TRUST_PATH')) {
+    define('WEBMAP_TRUST_PATH', XOOPS_TRUST_PATH . '/modules/' . WEBMAP_TRUST_DIRNAME);
+}
 
-?>
+include_once WEBMAP_TRUST_PATH . '/class/base/d3/optional.php';
+include_once WEBMAP_TRUST_PATH . '/class/base/d3/preload.php';
+include_once WEBMAP_TRUST_PATH . '/include/optional.php';

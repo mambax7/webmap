@@ -6,13 +6,12 @@
 // 2009-02-11 K.OHWADA
 //=========================================================
 
-if( ! defined( 'XOOPS_TRUST_PATH' ) ) die( 'not permit' ) ;
+if (!defined('XOOPS_TRUST_PATH')) {
+    die('not permit');
+}
 
 // --- define version begin ---
-if( !defined("_C_WEBMAP_VERSION") ) 
-{
-	define("_C_WEBMAP_VERSION", "0.20" ) ;
-}
-// --- define version end ---
-
-?>
+if (!defined('_C_WEBMAP_VERSION')) {
+    define('_C_WEBMAP_VERSION', '0.20');
+}// --- define version end ---
+;
